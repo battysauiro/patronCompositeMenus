@@ -16,7 +16,7 @@ public class Menu extends ComponenteMenu{
     ArrayList<ComponenteMenu>menuComponentes=new ArrayList();
     private String nombre;
     private String descripcion;
-    
+    private double total=0;
     
    public Menu(String nombre,String descripcion){
        this.nombre=nombre;
@@ -56,6 +56,20 @@ public class Menu extends ComponenteMenu{
     }
     
     @Override
+    public double costoTotal(){
+ 
+        Iterator iterator =menuComponentes.iterator();
+        while(iterator.hasNext()){
+            ComponenteMenu menuComponentes=(ComponenteMenu)iterator.next();
+            if(menuComponentes.esHijo())
+            {//)System.out.println("aquiiiiiiii "+menuComponentes.getPrecio());
+                total+=menuComponentes.getPrecio();
+            }
+        }
+        return total;
+    }
+    
+    @Override
     public void print(){
         System.out.print("\n"+getNombre());
         System.out.println(", "+getDescripcion());
@@ -65,5 +79,9 @@ public class Menu extends ComponenteMenu{
             ComponenteMenu menuComponentes=(ComponenteMenu)iterator.next();
             menuComponentes.print();
         }
+        System.out.println("costo total: "+costoTotal());
     }
+    
+    
+    
 }

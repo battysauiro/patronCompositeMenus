@@ -44,4 +44,8 @@ public abstract class ComponenteMenu {
     public boolean isVegetariano(){
         throw new UnsupportedOperationException();
     }
+    
+    public double costoTotal(){
+        throw new UnsupportedOperationException();
+    }
 }
