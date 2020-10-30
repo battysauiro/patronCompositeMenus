@@ -40,4 +40,8 @@ public abstract class ComponenteMenu {
     public void print(){
         throw new UnsupportedOperationException();
     }
+    
+    public boolean isVegetariano(){
+        throw new UnsupportedOperationException();
+    }
 }

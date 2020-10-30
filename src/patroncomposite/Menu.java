@@ -25,15 +25,20 @@ public class Menu extends ComponenteMenu{
    
     @Override
     public void add(ComponenteMenu menucomponente){
-        menuComponentes.add(menucomponente);
+        if(menuComponentes.indexOf(menucomponente)==-1)menuComponentes.add(menucomponente);
     }
     @Override
     public void remove(ComponenteMenu menucomponente){
-        menuComponentes.remove(menucomponente);
+        if(menuComponentes.indexOf(menucomponente)!=1)menuComponentes.remove(menucomponente);
     }
     @Override
     public ComponenteMenu getHijo(int i){
-        return (ComponenteMenu)menuComponentes.get(i);
+        if(!menuComponentes.isEmpty()){
+            if(i>=0 && i<menuComponentes.size()){
+                return (ComponenteMenu)menuComponentes.get(i);
+            } 
+        }
+        throw new UnsupportedOperationException();
     }
     @Override
     public String getNombre(){
@@ -52,7 +57,7 @@ public class Menu extends ComponenteMenu{
     
     @Override
     public void print(){
-        System.out.println("\n"+getNombre());
+        System.out.print("\n"+getNombre());
         System.out.println(", "+getDescripcion());
         System.out.println("----------------------------");
         Iterator iterator =menuComponentes.iterator();

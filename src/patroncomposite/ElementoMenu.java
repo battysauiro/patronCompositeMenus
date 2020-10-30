@@ -38,6 +38,7 @@ public class ElementoMenu extends ComponenteMenu{
         return precio;
     }
     
+    @Override
     public boolean isVegetariano(){
         return vegetariano;
     }
